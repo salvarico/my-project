@@ -1,0 +1,46 @@
+
+
+% Default to the notebook output style
+((* if not cell_style is defined *))
+    ((* set cell_style = 'style_ipython.tplx' *))
+((* endif *))
+
+% Inherit from the specified cell style.
+((* extends cell_style *))
+
+
+%===============================================================================
+% Latex Article
+%===============================================================================
+
+((* block docclass *))
+\documentclass[titlepage]{article} % this was modified, the default is \documentclass{article}
+((* endblock docclass *))
+
+((* block header *))
+((( super() )))
+\usepackage[spanish]{babel}
+((* endblock *))
+
+((* block predoc *))
+    ((( super() )))
+	((* block acknowledgement *))Agradecimientos: Tere :)((* endblock acknowledgement *))
+	\newpage
+    ((* block tableofcontents *))\tableofcontents((* endblock tableofcontents *))
+	\newpage
+((* endblock predoc *))
+
+((* block author *))
+\author{José Salvador Rico Mercado}
+((* endblock author *))
+
+((* block title *))
+\title{Detección de animales}
+((* endblock title *))
+
+((* block bibliography *))
+\newpage
+\renewcommand\refname{Bibliografía}
+\bibliographystyle{unsrt}
+\bibliography{ipython}
+((* endblock bibliography *))
